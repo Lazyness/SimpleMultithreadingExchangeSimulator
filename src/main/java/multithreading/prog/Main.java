@@ -1,6 +1,6 @@
 package multithreading.prog;
 
-import multithreading.prog.models.Customer;
+import multithreading.prog.models.Buyer;
 import multithreading.prog.models.Share;
 import multithreading.prog.thread.BrokerThread;
 import multithreading.prog.thread.ExchangeThread;
@@ -15,17 +15,17 @@ public class Main {
         Share shares2 = new Share("COKE", 1000, 387);
         Share shares3 = new Share("IBM", 200, 137);
 
-        Customer customer1 = new Customer("Alice", new Share[]{
+        Buyer buyer1 = new Buyer("Alice", new Share[]{
                 new Share("AAPL", 10, 100),
                 new Share("COKE", 20, 390)
         });
 
-        Customer customer2 = new Customer("Bob", new Share[]{
+        Buyer buyer2 = new Buyer("Bob", new Share[]{
                 new Share("AAPL", 10, 140),
                 new Share("IBM", 20, 135)
         });
 
-        Customer customer3 = new Customer("Charlie", new Share[]{
+        Buyer buyer3 = new Buyer("Charlie", new Share[]{
                 new Share("COKE", 300, 370)
         });
 
@@ -34,10 +34,10 @@ public class Main {
         shareArrayList.add(shares2);
         shareArrayList.add(shares3);
 
-        ArrayList<Customer> customerArrayList = new ArrayList<>(3);
-        customerArrayList.add(customer1);
-        customerArrayList.add(customer2);
-        customerArrayList.add(customer3);
+        ArrayList<Buyer> customerArrayList = new ArrayList<>(3);
+        customerArrayList.add(buyer1);
+        customerArrayList.add(buyer2);
+        customerArrayList.add(buyer3);
 
         ExchangeThread runnableShare = null;
         for (Share share : shareArrayList
@@ -49,7 +49,7 @@ public class Main {
         }
 
         BrokerThread runnableBroker = null;
-        for (Customer customer : customerArrayList
+        for (Buyer customer : customerArrayList
         ) {
             runnableBroker = new BrokerThread(customer, shareArrayList);
             Thread thread = new Thread(runnableBroker);

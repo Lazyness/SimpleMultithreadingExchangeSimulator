@@ -2,7 +2,7 @@ package multithreading.prog.models;
 
 import java.util.Arrays;
 
-public class Customer {
+public class Buyer {
     private final String name;
     private final Share[] target;
 
@@ -14,7 +14,7 @@ public class Customer {
         return target;
     }
 
-    public Customer(String name, Share[] target) {
+    public Buyer(String name, Share[] target) {
         this.name = name;
         this.target = target;
     }
