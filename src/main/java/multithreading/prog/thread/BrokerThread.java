@@ -42,7 +42,7 @@ public class BrokerThread implements Runnable, Disable {
                                         share.getName() +
                                         ", which price: " +
                                         share.getPrice() +
-                                        " Amounts in shares not enough | Price in customer not enough. Your attempt to buy shares not successful...");
+                                        " Your attempt to buy shares not successful...");
                             }
                         }
                     }

@@ -10,28 +10,28 @@
     Share shares2 = new Share("COKE", 1000, 387);
     Share shares3 = new Share("IBM", 200, 137);
    ```
-5. 
-## Features
-☑️Main screen with buttons:
-- Ask a question,
-- Settings,
-- Quit;
+5. Buyer parameters are also set:
+```java
+        Buyer buyer1 = new Buyer("Alice", new Share[]{
+                new Share("AAPL", 10, 100),
+                new Share("COKE", 20, 390)
+        });
 
-<br>☑️Settings screen that allows you to edit user information:
-- name (text field),
-- last name (text field),
-- date of birth (display in text, change the date using DatePickerDialog),
-- gender (RadioButton);
+        Buyer buyer2 = new Buyer("Bob", new Share[]{
+                new Share("AAPL", 10, 140),
+                new Share("IBM", 20, 135)
+        });
 
-<br>☑️Screen for questions:
-- the user enters a question and clicks the "Generate" button,
-- the program responds with one of the following options: "Yes", "No", "Of course", "Maybe", "Are you sure?", "Great", "Wonderful", "Right?", "Maybe we should not?", "Please, repeat", "No more words, silence", "Are you sleeping now?", "Don't know", "Who cares"
-- the answer is generated based on the following data: entered question, information about user, current date.
-- for the same input data, the answer must be the same.
-
-## Launch guide
-To run this project you will need to install this project in phone with Android Operating System.
+        Buyer buyer3 = new Buyer("Charlie", new Share[]{
+                new Share("COKE", 300, 370)
+        });
+```
+6. The shares of each company can serve a separate flow of the exchange, which once in 30 seconds should change the share price, randomly, within 3% (in any direction).
+7. Each buyer is also served by a separate flow-broker who must safely refer to the data on the current share price and, given the buyer's settings, purchase the required number of shares or continue to wait. 
+8. Buyer streams should make purchase attempts every 5 seconds. 
+9. Each thread must report its results to the console at each step.
 
 ## Program testing
-### Main Menu
-![Main Menu](app/src/main/res/img/main.jpg)
+### Result of running the program for 60 seconds
+![img.png](src/main/resources/img_for_git/img_part1.png)
+![img_1.png](src/main/resources/img_for_git/img_part2.png)
